@@ -2,8 +2,8 @@ spring:
   social:
     auto-connection-views: true
     linkedin:
-      appId: XXXXXXXXXXXx
-      appSecret: XXXXXXXXXXXXXXXXXx
-
+      appId: XXXXXXXXXXXXXX
+      appSecret: XXXXXXXXXXXXXXXX
+  datasource.schema: classpath:org/springframework/social/connect/jdbc/JdbcUsersConnectionRepository.sql
 
 application.url: http://localhost:8080
