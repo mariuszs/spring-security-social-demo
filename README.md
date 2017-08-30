@@ -1,5 +1,6 @@
-Sample Spring Boot Application with Securty and Social Integration
-==================================================================
+Sample Spring Boot Application with LinkedIn Integration
+========================================================
+
 
 * Spring Social LinkedIn login with Persisted Connections
 * Spring Security with SocialAuthenticationFilter
