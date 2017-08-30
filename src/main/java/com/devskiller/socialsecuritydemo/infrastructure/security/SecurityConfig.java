@@ -16,6 +16,9 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsService userDetailsService;
 
+	@Autowired
+	private NotLoggedInEntryPoint notLoggedInEntryPoint;
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
@@ -24,8 +27,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/user/**").hasRole("USER")
 				.antMatchers("/auth/**", "/login", "/error", "/signup", "/css/**", "/js/**").permitAll()
 				.and()
-				.formLogin()
-				.loginPage("/login").failureUrl("/login-error")
+				.formLogin().disable()
+				.exceptionHandling().authenticationEntryPoint(notLoggedInEntryPoint)
 				.and()
 				.apply(new SpringSocialConfigurer())
 				.and().authorizeRequests().antMatchers("/console/**").permitAll()
