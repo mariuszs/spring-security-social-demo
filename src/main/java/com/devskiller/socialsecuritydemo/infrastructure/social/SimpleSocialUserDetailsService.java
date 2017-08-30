@@ -1,5 +1,7 @@
 package com.devskiller.socialsecuritydemo.infrastructure.social;
 
+import java.lang.invoke.MethodHandles;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +18,7 @@ import com.devskiller.socialsecuritydemo.infrastructure.security.CurrentUserDeta
 @Component
 public class SimpleSocialUserDetailsService implements SocialUserDetailsService {
 
-	private static final Logger LOG = LoggerFactory.getLogger(CurrentUserDetailsService.class);
+	private final static Logger LOG = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	private final UserDetailsService userDetailsService;
 

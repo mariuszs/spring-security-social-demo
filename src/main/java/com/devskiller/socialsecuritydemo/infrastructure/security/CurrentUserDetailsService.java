@@ -1,5 +1,7 @@
 package com.devskiller.socialsecuritydemo.infrastructure.security;
 
+import java.lang.invoke.MethodHandles;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,7 +19,7 @@ import static org.springframework.security.core.userdetails.User.withUsername;
 @Service
 public class CurrentUserDetailsService implements UserDetailsService {
 
-	private static final Logger LOG = LoggerFactory.getLogger(CurrentUserDetailsService.class);
+	private final static Logger LOG = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 	private final UserRepository userRepository;
 
 	public CurrentUserDetailsService(UserRepository userRepository) {
