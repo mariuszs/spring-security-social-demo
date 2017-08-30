@@ -17,12 +17,12 @@ import com.devskiller.socialsecuritydemo.domain.UserRepository;
 import static org.springframework.security.core.userdetails.User.withUsername;
 
 @Service
-public class CurrentUserDetailsService implements UserDetailsService {
+class CurrentUserDetailsService implements UserDetailsService {
 
 	private final static Logger LOG = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 	private final UserRepository userRepository;
 
-	public CurrentUserDetailsService(UserRepository userRepository) {
+	CurrentUserDetailsService(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
 

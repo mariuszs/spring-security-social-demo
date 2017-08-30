@@ -13,16 +13,14 @@ import org.springframework.social.security.SocialUserDetails;
 import org.springframework.social.security.SocialUserDetailsService;
 import org.springframework.stereotype.Component;
 
-import com.devskiller.socialsecuritydemo.infrastructure.security.CurrentUserDetailsService;
-
 @Component
-public class SimpleSocialUserDetailsService implements SocialUserDetailsService {
+class SimpleSocialUserDetailsService implements SocialUserDetailsService {
 
 	private final static Logger LOG = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	private final UserDetailsService userDetailsService;
 
-	public SimpleSocialUserDetailsService(UserDetailsService userDetailsService) {
+	SimpleSocialUserDetailsService(UserDetailsService userDetailsService) {
 		this.userDetailsService = userDetailsService;
 	}
 

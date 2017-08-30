@@ -13,7 +13,7 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NotLoggedInEntryPoint implements AuthenticationEntryPoint {
+class NotLoggedInEntryPoint implements AuthenticationEntryPoint {
 
 	@Override
 	public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {

@@ -19,10 +19,11 @@ public class UserConnectionSignUp implements ConnectionSignUp {
 
 	private final UserRepository userRepository;
 
-	public UserConnectionSignUp(UserRepository userRepository) {
+	UserConnectionSignUp(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
 
+	@Override
 	public String execute(Connection<?> connection) {
 		UserProfile profile = connection.fetchUserProfile();
 		log.info("Connection sign up for {}", profile.getEmail());

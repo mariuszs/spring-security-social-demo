@@ -15,17 +15,15 @@ import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.connect.ConnectionSignUp;
 import org.springframework.social.connect.UsersConnectionRepository;
 import org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository;
-import org.springframework.social.connect.mem.InMemoryUsersConnectionRepository;
 import org.springframework.social.connect.web.ConnectController;
-import org.springframework.social.connect.web.ProviderSignInUtils;
 import org.springframework.social.security.AuthenticationNameUserIdSource;
 
 @EnableSocial
 @Configuration
-public class SocialConfig extends SocialConfigurerAdapter {
+class SocialConfig extends SocialConfigurerAdapter {
 
 	@Autowired
-	DataSource dataSource;
+	private DataSource dataSource;
 
 	@Autowired
 	private ConnectionSignUp connectionSignUp;
@@ -38,14 +36,15 @@ public class SocialConfig extends SocialConfigurerAdapter {
 	}
 
 	@Bean
-	public ConnectController connectController(ConnectionFactoryLocator connectionFactoryLocator,
-	                                           ConnectionRepository connectionRepository,
-	                                           Environment environment) {
+	ConnectController connectController(ConnectionFactoryLocator connectionFactoryLocator,
+	                                    ConnectionRepository connectionRepository,
+	                                    Environment environment) {
 		ConnectController controller = new ConnectController(connectionFactoryLocator, connectionRepository);
 		controller.setApplicationUrl(environment.getProperty("application.url"));
 		return controller;
 	}
 
+	@Override
 	public UserIdSource getUserIdSource() {
 		return new AuthenticationNameUserIdSource();
 	}
